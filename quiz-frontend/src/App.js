@@ -1,19 +1,19 @@
-
-import './App.css';
-import { useState } from "react";
+import "./App.css";
 import Home from "./components/Home";
 import Quiz from "./components/Quiz";
-
+import Result from "./components/Result";
+import { Route, Routes } from "react-router";
 
 function App() {
-  const [gameState, setGameState] = useState("home");
 
   return (
     <div className="App">
       <h1>Quiz App</h1>
-
-      {gameState === "home" && <Home />}
-      {gameState === "quiz" && <Quiz />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/" element={<Result />} />
+      </Routes>
     </div>
   );
 }

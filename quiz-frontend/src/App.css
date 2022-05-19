@@ -1,36 +1,75 @@
-.App{
-  font-family: Arial, Helvetica, sans-serif;
+body{
+  background-color: #e5e2e2;
+
+}
+.App {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
-.App h1{
+.App h1 {
   margin: 4rem;
   font-size: 2.5rem;
 }
 
-.Home{
+.Home {
   width: 600px;
   height: 600px;
   border-radius: 10px;
-  background-color:lightseagreen;
+  background-image: url(../public/images/gif.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-.Home button{
+.Home button {
   width: 300px;
-  height: 50px;
-  margin:10px;
+  height: 60px;
+  margin: 10px;
   padding: 15px;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 1.8rem;
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
+  
+}
+
+
+.questionBox {
+  width: 600px;
+  height: 600px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #4a86ef;
+}
+
+.questionBox li{
+  list-style: none;
+}
+
+.questionCorrect {
+  background-color: rgb(23, 176, 12);
+}
+.questionIncorrect {
+  background-color: rgb(244, 33, 33);
+}
+
+button{
+  margin-left: 1.2rem;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
 }
