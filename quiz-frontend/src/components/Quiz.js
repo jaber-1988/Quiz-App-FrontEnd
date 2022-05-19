@@ -8,6 +8,7 @@ export default function Quiz() {
   const [currentQuesIndex, setCurrentQuesIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(-1);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [counter,setCounter]=useState(0)
 
 
   useEffect(() => {
@@ -15,12 +16,16 @@ export default function Quiz() {
       setIsCorrect(
         selectedAnswer === defaultQuestion[currentQuesIndex].correct
       );
+     
     } else {
       setIsCorrect(null)
     }
   }, [currentQuesIndex, selectedAnswer]);
-    
 
+useEffect(()=>{
+if (isCorrect===true){ setCounter(counter+5)}
+},[isCorrect])
+ 
 
 
 
@@ -40,15 +45,15 @@ export default function Quiz() {
   };
 
 
-/*  const isCorrect= selectedAnswer === defaultQuestion[currentQuesIndex].correct;
-  console.log(isCorrect)
-  */
+  /*  const isCorrect= selectedAnswer === defaultQuestion[currentQuesIndex].correct;
+    console.log(isCorrect)
+    */
 
   return (
     <div
-      className={`questionBox ${ isCorrect!== null ? 
-        isCorrect ? "questionCorrect" : "questionIncorrect" :""
-      }`}
+      className={`questionBox ${isCorrect !== null ?
+        isCorrect ? "questionCorrect" : "questionIncorrect" : ""
+        }`}
     >
       <h2>{defaultQuestion[currentQuesIndex].Frage}</h2>
       <ul>
@@ -75,6 +80,7 @@ export default function Quiz() {
         >
           Next Question
         </button>
+        <h1>sume:{counter}</h1>
       </div>
     </div>
   );
