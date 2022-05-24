@@ -1,33 +1,22 @@
-import React from 'react'
-import { useState } from "react";
-import axios from "axios";
-
-
-const apiHost = process.env.REACT_APP_API_HOST
-
-
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Result() {
+  const { state: result } = useLocation();
 
-  const [playerNew, setPlayerNew] = useState({})
-
-  const createPlayer = async () => {
-    try {
-      const respons = await axios.post(`${apiHost}/addPlayer/`, playerNew);
-      console.log(respons);
-    } catch (err) {
-      console.error(err);
-    }
-  }
   return (
-    <div>
+    <div className="questionBox">
       <h2>Your Score:</h2>
+      <ul>
+        <li>Correct Answer : {result.correctAnswer}</li>
+        <li>Incorrect Answer : {result.inCorrectAnswer}</li>
+        <li>Without Answer : {result.withoutAnswer}</li>
+      </ul>
 
-      <label>Your Name: </label>
-      <input type="text" required defaultValue="" onChange={(e) => { setPlayerNew({ ...playerNew, yourName: e.target.value }); console.log(playerNew); }} />
-
-
-      <button onClick={() => { createPlayer() }}>Save</button>
+      <button>
+        <Link to="/quiz">Try again</Link>
+      </button>
     </div>
-  )
+  );
 }
