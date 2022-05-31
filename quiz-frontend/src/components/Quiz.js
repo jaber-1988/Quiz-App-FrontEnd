@@ -4,16 +4,15 @@ import { useNavigate } from "react-router";
 
 export default function Quiz() {
   const navigate = useNavigate();
-
   const [currentQuesIndex, setCurrentQuesIndex] = useState(0);
   const [defaultQuestion, setDefaultQuestion] = useState([]);
-
   useEffect(() => {
-    axios.get("http://localhost:3002").then((res) => {
+    axios.get("http://localhost:3010").then((res) => {
       console.log(res);
       setDefaultQuestion(res.data);
     });
   }, []);
+
 
   const nextQuestion = () => {
     setCurrentQuesIndex(currentQuesIndex + 1);
@@ -21,8 +20,8 @@ export default function Quiz() {
 
   const previousQuestion = () => {
     setCurrentQuesIndex(currentQuesIndex - 1);
-
   };
+
   const onChangeAnswer = (index) => {
     const newQuestionList = [...defaultQuestion];
     newQuestionList[currentQuesIndex].answer = index;
@@ -35,7 +34,6 @@ export default function Quiz() {
   }
 
   const isCorrect = currentQuestion.answer === currentQuestion.correct;
-
   const showResult = () => {
     const result = {
       correctAnswer: 0,
@@ -46,18 +44,18 @@ export default function Quiz() {
     defaultQuestion.forEach((Question) => {
       if (Question.answer === undefined) {
         result.withoutAnswer++;
-      }
-      else if (Question.answer === Question.correct) {
+      } else if (Question.answer === Question.correct) {
         result.correctAnswer++;
       } else {
         result.inCorrectAnswer++;
       }
     });
-    navigate("/result", {
-      state: result
-  })
-  };
 
+    navigate("/result", {
+      state: result,
+    });
+  };
+  
   return (
     <div
       className={`questionBox ${
