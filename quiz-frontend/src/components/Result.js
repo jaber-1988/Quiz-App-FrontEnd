@@ -49,11 +49,11 @@ export default function Result() {
     <div className="questionBox">
       <h2>Your Score:</h2>
 
-      <ul className="score-box">
-        <li>Correct Answer : {result.correctAnswer}</li>
-        <li>Incorrect Answer : {result.inCorrectAnswer}</li>
-        <li>Without Answer : {result.withoutAnswer}</li>
-      </ul>
+      <div className="score-box">
+        <p>Correct Answer : {result.correctAnswer}</p>
+        <p>Incorrect Answer : {result.inCorrectAnswer}</p>
+        <p>Without Answer : {result.withoutAnswer}</p>
+      </div>
 
       <button>
         <Link to="/quiz">Try again</Link>

@@ -7,7 +7,7 @@ export default function Quiz() {
   const [currentQuesIndex, setCurrentQuesIndex] = useState(0);
   const [defaultQuestion, setDefaultQuestion] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3010").then((res) => {
+    axios.get(process.env.REACT_APP_API_HOST).then((res) => {
       console.log(res);
       setDefaultQuestion(res.data);
     });
@@ -66,11 +66,11 @@ export default function Quiz() {
           : ""
       }`}
     >
-      <h2>{currentQuestion.Frage}</h2>
-      <ul className="answer-box">
+      <h2 className="frage"> {currentQuestion.Frage}</h2>
+      <div className="answer-box">
         {currentQuestion.antwort.map((item, index) => {
           return (
-            <li className="answers">
+            <p className="answers">
               <input
                 type="radio"
                 name="radio"
@@ -78,10 +78,10 @@ export default function Quiz() {
                 checked={currentQuestion.answer === index}
               />
               {item}
-            </li>
+            </p>
           );
         })}
-      </ul>
+      </div>
       <div>
         <button onClick={previousQuestion} disabled={currentQuesIndex === 0}>
           Previous Question
