@@ -9,7 +9,7 @@ export default function Quiz() {
   const [defaultQuestion, setDefaultQuestion] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3010").then((res) => {
+    axios.get("http://localhost:3002").then((res) => {
       console.log(res);
       setDefaultQuestion(res.data);
     });
@@ -69,10 +69,10 @@ export default function Quiz() {
       }`}
     >
       <h2>{currentQuestion.Frage}</h2>
-      <ul>
+      <ul className="answer-box">
         {currentQuestion.antwort.map((item, index) => {
           return (
-            <li>
+            <li className="answers">
               <input
                 type="radio"
                 name="radio"
