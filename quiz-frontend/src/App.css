@@ -11,6 +11,8 @@ color: rgb(112, 39, 39);
   align-items: center;
   flex-direction: column;
 }
+
+
 .App img{
   width: 70x;
   height: 70px;
@@ -19,8 +21,14 @@ color: rgb(112, 39, 39);
 .App h1 {
   margin: 3.5rem;
   font-size: 4rem;
-  font-weight:5rem;
-  color: rgb(112, 39, 39);
+  color: rgb(55, 14, 14);
+  text-align: center;
+  width: 100vw;
+  height: 8vh;
+  margin: 0;
+  margin-bottom: 6rem;
+  background-color: #ffd55d ;
+
 }
 
 .Home {
@@ -28,23 +36,23 @@ color: rgb(112, 39, 39);
   height: 600px;
   border-radius: 10px;
   background-color: #ffffff;
-  background-image:url("../public/images/93.jpg");
+  background-image:url("../public/images/background.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-content:center;
 }
 
 .Home button {
   width: 300px;
   height: 60px;
-  margin: 10px;
-  padding: 15px;
   border: none;
+  margin: auto;
   border-radius: 5px;
   font-size: 1.8rem;
   text-decoration: none;
+  text-align: center;
   background-color:  #fffdf9;
   cursor: pointer;
   
